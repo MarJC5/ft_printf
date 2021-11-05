@@ -1,3 +1,7 @@
+# Others
+.DS_Store
+test
+
 # Prerequisites
 *.d
 
