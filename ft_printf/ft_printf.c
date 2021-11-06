@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 18:08:17 by jmartin           #+#    #+#             */
-/*   Updated: 2021/11/06 15:17:42 by jmartin          ###   ########.fr       */
+/*   Updated: 2021/11/07 00:14:05 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,20 @@ static void	ft_printf_args(char convert, va_list args)
 		ft_printf_str(va_arg(args, char *));
 	else if (convert == 'p')
 		ft_printf_ptr(va_arg(args, char *));
+	else if (convert == 'i')
+		ft_printf_int(va_arg(args, signed int));
+	else if (convert == 'x')
+		ft_printf_str(ft_printf_hex(va_arg(args, int)));
+	else if (convert == 'X')
+		ft_printf_str(ft_printf_hex_upper(va_arg(args, int)));
+	else if (convert == '%')
+		ft_printf_char('%');
 }
 
 int	ft_printf(const char *input, ...)
 {
-	int	i;
-	int	args_count;
+	int		i;
+	int		args_count;
 	va_list	args;
 
 	i = 0;
@@ -35,16 +43,18 @@ int	ft_printf(const char *input, ...)
 	{
 		if (input[i] != '%')
 			ft_putchar_fd(input[i], 1);
-		else if (input[i] == '%' && input[i + 1])
+		else if (input[i] == '%' && input[i + 1] == '%')
+		{
 			ft_printf_args(input[++i], args);
+			args_count++;
+		}
+		else if (input[i] == '%' && input[i + 1])
+		{
+			ft_printf_args(input[++i], args);
+			args_count++;
+		}
 		i++;
 	}
 	va_end(args);
 	return (args_count);
-}
-
-int	main(void)
-{
-	ft_printf("COUCOU %s TEST %c", "insert me in the middle", 122);
-	return (0);
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_per.c                                    :+:      :+:    :+:   */
+/*   ft_printf_dec.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 14:34:08 by jmartin           #+#    #+#             */
-/*   Updated: 2021/11/06 15:09:53 by jmartin          ###   ########.fr       */
+/*   Created: 2021/11/06 22:26:33 by jmartin           #+#    #+#             */
+/*   Updated: 2021/11/06 22:36:49 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printf_ptr(char *str)
+int	ft_printf_dec(int nbr)
 {
-	(void)str;
+	return (nbr);
 }

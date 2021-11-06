@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_char.c                                   :+:      :+:    :+:   */
+/*   ft_printf_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 12:37:37 by jmartin           #+#    #+#             */
-/*   Updated: 2021/11/06 22:18:09 by jmartin          ###   ########.fr       */
+/*   Created: 2021/11/06 21:57:24 by jmartin           #+#    #+#             */
+/*   Updated: 2021/11/06 22:38:38 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf_char(int c)
+int	ft_printf_int(int nbr)
 {
-	if (ft_isprint(c))
-		ft_putchar_fd((unsigned char)c, 1);
-	return (c);
+	ft_putnbr_fd((signed int)nbr, 1);
+	return (nbr);
 }

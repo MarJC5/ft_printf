@@ -15,8 +15,9 @@ FILES		= 	ft_printf.c \
 				ft_printf_char.c \
 				ft_printf_str.c \
 				ft_printf_ptr.c \
-				ft_printf_per.c \
-				ft_printf_hex.c
+				ft_printf_hex.c \
+				ft_printf_int.c \
+				ft_printf_dec.c
 OBJ			= 	$(FILES:.c=.o)
 
 all: $(NAME)
@@ -43,7 +44,7 @@ fclean: clean
 
 # Compile all for test program
 test: tclean all
-	@$(CC) -o test $(NAME)
+	@$(CC) main.c -o test $(NAME)
 	@echo "[$(ORANGE)build$(RESET)]: Ready to test the program ./test"
 
 # Clean all for test program
