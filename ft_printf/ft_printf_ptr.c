@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_char.c                                   :+:      :+:    :+:   */
+/*   ft_printf_ptr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 12:37:37 by jmartin           #+#    #+#             */
-/*   Updated: 2021/11/07 10:53:30 by jmartin          ###   ########.fr       */
+/*   Created: 2021/11/07 11:06:04 by jmartin           #+#    #+#             */
+/*   Updated: 2021/11/07 11:55:23 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf_char(int c, int *rcount)
+int	ft_printf_ptr(void *ptr, int *rcount)
 {
-	if (c == 0)
-		ft_putchar_fd((unsigned char)'\0', 1);
-	else if (ft_isascii(c))
-		ft_putchar_fd((unsigned char)c, 1);
-	else if (!ft_isprint(c))
-		ft_putchar_fd((unsigned char)'0', 1);
-	*rcount += 1;
+	ft_printf_str("0x", rcount);
+	ft_printf_str(ft_printf_hex((unsigned long int)ptr), rcount);
 	return (*rcount);
 }

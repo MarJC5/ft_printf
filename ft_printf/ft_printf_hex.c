@@ -6,45 +6,13 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 15:33:47 by jmartin           #+#    #+#             */
-/*   Updated: 2021/11/07 04:33:39 by jmartin          ###   ########.fr       */
+/*   Updated: 2021/11/07 13:51:51 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char	*ft_revchar_tab(char *tab, int size)
-{
-	int	i;
-	int	temp;
-
-	i = 0;
-	while (i < size)
-	{
-		temp = tab[i];
-		tab[i] = tab[size - 1];
-		tab[size - 1] = temp;
-		i++;
-		size--;
-	}
-	return (tab);
-}
-
-static int	ft_numiterate(int n)
-{
-	int	i;
-
-	i = 1;
-	if (n == 0)
-		return (i);
-	while (n != 0)
-	{
-		n /= 10;
-		i++;
-	}
-	return (i);
-}
-
-char	*ft_printf_hex(int nbr)
+char	*ft_printf_hex(unsigned int nbr)
 {
 	char 	*ret;
 	char	*hex;
@@ -53,19 +21,19 @@ char	*ft_printf_hex(int nbr)
 
 	rest = 0;
 	i = 0;
-	if ((unsigned int)nbr == 0)
+	if (nbr == 0)
 		return ("0");
 	hex = (char *)malloc(ft_numiterate(nbr) + 1 * sizeof(char));
 	if (!hex)
 		return (0);
-	while ((unsigned int)nbr != 0)
+	while (nbr != 0)
 	{
-		rest = (unsigned int)nbr % 16;
+		rest = nbr % 16;
 		if (rest < 10)
 			hex[i++] = 48 + rest;
 		else
 			hex[i++] = 87 + rest;
-		nbr = (unsigned int)nbr / 16;
+		nbr = nbr / 16;
 	}
 	hex[i] = '\0';
 	ret = ft_revchar_tab(hex, i);
@@ -73,7 +41,7 @@ char	*ft_printf_hex(int nbr)
 	return (ret);
 }
 
-char	*ft_printf_hex_upper(int nbr)
+char	*ft_printf_hex_upper(unsigned int nbr)
 {
 	char	*hex;
 	size_t	i;

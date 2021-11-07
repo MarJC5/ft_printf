@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 18:08:25 by jmartin           #+#    #+#             */
-/*   Updated: 2021/11/07 04:10:14 by jmartin          ###   ########.fr       */
+/*   Updated: 2021/11/07 13:52:23 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,20 @@
 
 # include "./libft/libft.h"
 # include <stdarg.h>
+# include <stdio.h>
 
 int		ft_printf(const char *str, ...);
 int		ft_printf_char(int c, int *rcount);
 int		ft_printf_str(char *str, int *rcount);
+int		ft_printf_ptr(void *ptr, int *rcount);
 int		ft_printf_int(int nbr, int *rcount);
+int		ft_printf_dusi(int nbr, int *rcount);
 
-char	*ft_printf_hex(int nbr);
-char	*ft_printf_hex_upper(int nbr);
+int		ft_numiterate(int n);
+
+char	*ft_revchar_tab(char *tab, int size);
+
+char	*ft_printf_hex(unsigned int nbr);
+char	*ft_printf_hex_upper(unsigned int nbr);
 
 #endif

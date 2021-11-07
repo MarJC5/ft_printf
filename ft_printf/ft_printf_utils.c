@@ -1,25 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_char.c                                   :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 12:37:37 by jmartin           #+#    #+#             */
-/*   Updated: 2021/11/07 10:53:30 by jmartin          ###   ########.fr       */
+/*   Created: 2021/11/07 13:50:03 by jmartin           #+#    #+#             */
+/*   Updated: 2021/11/07 13:50:30 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf_char(int c, int *rcount)
+char	*ft_revchar_tab(char *tab, int size)
 {
-	if (c == 0)
-		ft_putchar_fd((unsigned char)'\0', 1);
-	else if (ft_isascii(c))
-		ft_putchar_fd((unsigned char)c, 1);
-	else if (!ft_isprint(c))
-		ft_putchar_fd((unsigned char)'0', 1);
-	*rcount += 1;
-	return (*rcount);
+	int	i;
+	int	temp;
+
+	i = 0;
+	while (i < size)
+	{
+		temp = tab[i];
+		tab[i] = tab[size - 1];
+		tab[size - 1] = temp;
+		i++;
+		size--;
+	}
+	return (tab);
+}
+
+int	ft_numiterate(int n)
+{
+	int	i;
+
+	i = 1;
+	if (n == 0)
+		return (i);
+	while (n != 0)
+	{
+		n /= 10;
+		i++;
+	}
+	return (i);
 }
