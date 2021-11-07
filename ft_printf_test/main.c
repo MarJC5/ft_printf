@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 23:55:57 by jmartin           #+#    #+#             */
-/*   Updated: 2021/11/07 13:08:28 by jmartin          ###   ########.fr       */
+/*   Updated: 2021/11/07 14:15:39 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ int	main(void)
 	printf("\033[1;32mDecimal:\033[0m %d\n", dec);
 	printf("\033[1;32mPercent:\033[0m %%\n\n");
 
-	return (0);⁄
+	return (0);
 }
