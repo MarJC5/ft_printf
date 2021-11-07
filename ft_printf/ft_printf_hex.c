@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 15:33:47 by jmartin           #+#    #+#             */
-/*   Updated: 2021/11/07 00:06:50 by jmartin          ###   ########.fr       */
+/*   Updated: 2021/11/07 04:33:39 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,28 +46,31 @@ static int	ft_numiterate(int n)
 
 char	*ft_printf_hex(int nbr)
 {
+	char 	*ret;
 	char	*hex;
 	int		rest;
 	int		i;
 
 	rest = 0;
 	i = 0;
-	if (nbr == 0)
+	if ((unsigned int)nbr == 0)
 		return ("0");
 	hex = (char *)malloc(ft_numiterate(nbr) + 1 * sizeof(char));
 	if (!hex)
 		return (0);
-	while (nbr != 0)
+	while ((unsigned int)nbr != 0)
 	{
-		rest = nbr % 16;
+		rest = (unsigned int)nbr % 16;
 		if (rest < 10)
 			hex[i++] = 48 + rest;
 		else
 			hex[i++] = 87 + rest;
-		nbr = nbr / 16;
+		nbr = (unsigned int)nbr / 16;
 	}
 	hex[i] = '\0';
-	return (ft_revchar_tab(hex, i));
+	ret = ft_revchar_tab(hex, i);
+	free(hex);
+	return (ret);
 }
 
 char	*ft_printf_hex_upper(int nbr)
@@ -75,14 +78,12 @@ char	*ft_printf_hex_upper(int nbr)
 	char	*hex;
 	size_t	i;
 
-	i = 0;
+	i = -1;
 	if (nbr == 0)
 		return ("0");
 	hex = ft_printf_hex(nbr);
-	while (i++ < ft_strlen(hex))
-	{
+	while (++i <= ft_strlen(hex))
 		hex[i] = ft_toupper(hex[i]);
-	}
 	return (hex);
 }
 

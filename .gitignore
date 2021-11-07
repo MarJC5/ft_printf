@@ -1,6 +1,9 @@
 # Others
 .DS_Store
 test
+printfTester/
+pft_2019/
+printf-tester/
 
 # Prerequisites
 *.d
