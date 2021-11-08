@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 15:33:47 by jmartin           #+#    #+#             */
-/*   Updated: 2021/11/08 13:22:43 by jmartin          ###   ########.fr       */
+/*   Updated: 2021/11/08 13:54:43 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*ft_convert_hex_upper(unsigned long nbr)
 	return (hex);
 }
 
-void	ft_print_hex_min(unsigned long nbr, int *rcount)
+int	ft_print_hex_min(unsigned long nbr, int *rcount)
 {
 	char	*hex;
 
@@ -59,9 +59,10 @@ void	ft_print_hex_min(unsigned long nbr, int *rcount)
 	ft_printf_str(hex, rcount);
 	free (hex);
 	hex = NULL;
+	return (*rcount);
 }
 
-void	ft_print_hex_upper(unsigned long nbr, int *rcount)
+int	ft_print_hex_upper(unsigned long nbr, int *rcount)
 {
 	char	*hex;
 
@@ -69,6 +70,7 @@ void	ft_print_hex_upper(unsigned long nbr, int *rcount)
 	ft_printf_str(hex, rcount);
 	free (hex);
 	hex = NULL;
+	return (*rcount);
 }
 
 /*
