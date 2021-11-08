@@ -17,7 +17,7 @@ FILES		= 	ft_printf.c \
 				ft_printf_ptr.c \
 				ft_printf_hex.c \
 				ft_printf_int.c \
-				ft_printf_dusi.c \
+				ft_printf_dun.c \
 				ft_printf_utils.c
 OBJ			= 	$(FILES:.c=.o)
 

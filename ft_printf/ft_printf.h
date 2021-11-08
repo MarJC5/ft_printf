@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 18:08:25 by jmartin           #+#    #+#             */
-/*   Updated: 2021/11/08 13:56:26 by jmartin          ###   ########.fr       */
+/*   Updated: 2021/11/08 20:30:27 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_printf_char(int c, int *rcount);
 int		ft_printf_str(char *str, int *rcount);
 int		ft_printf_ptr(void *ptr, int *rcount);
 int		ft_printf_int(int nbr, int *rcount);
-int		ft_printf_dusi(int nbr, int *rcount);
+int		ft_printf_dun(unsigned int nbr, int *rcount);
 int		ft_print_hex_min(unsigned long nbr, int *rcount);
 int		ft_print_hex_upper(unsigned long nbr, int *rcount);
 int		ft_numiterate(unsigned long n);
