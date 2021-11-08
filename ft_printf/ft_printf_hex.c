@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 15:33:47 by jmartin           #+#    #+#             */
-/*   Updated: 2021/11/08 13:11:35 by jmartin          ###   ########.fr       */
+/*   Updated: 2021/11/08 13:22:43 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*ft_convert_hex_upper(unsigned long nbr)
 
 void	ft_print_hex_min(unsigned long nbr, int *rcount)
 {
-	char *hex;
+	char	*hex;
 
 	hex = ft_convert_hex_min(nbr);
 	ft_printf_str(hex, rcount);
@@ -63,7 +63,7 @@ void	ft_print_hex_min(unsigned long nbr, int *rcount)
 
 void	ft_print_hex_upper(unsigned long nbr, int *rcount)
 {
-	char *hex;
+	char	*hex;
 
 	hex = ft_convert_hex_upper(nbr);
 	ft_printf_str(hex, rcount);

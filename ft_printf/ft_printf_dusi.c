@@ -6,13 +6,13 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 12:46:25 by jmartin           #+#    #+#             */
-/*   Updated: 2021/11/07 13:50:00 by jmartin          ###   ########.fr       */
+/*   Updated: 2021/11/08 13:22:29 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int ft_print_unten(unsigned int nbr, int *rcount)
+static int	ft_print_unten(unsigned int nbr, int *rcount)
 {
 	char	*str;
 	int		i;
