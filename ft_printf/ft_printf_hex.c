@@ -6,70 +6,37 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 15:33:47 by jmartin           #+#    #+#             */
-/*   Updated: 2021/11/08 13:54:43 by jmartin          ###   ########.fr       */
+/*   Updated: 2021/11/08 21:21:16 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_convert_hex_min(unsigned long nbr)
+int	ft_printf_hex(unsigned long nbr, int *rcount, int format)
 {
-	char	*hex;
-	int		rest;
+	char	*ret;
 	int		i;
 
-	rest = 0;
-	i = 0;
-	if (nbr == 0)
-		return (ft_strdup("0"));
-	hex = (char *)malloc((ft_numiterate(nbr) + 1) * sizeof(char));
-	if (!hex)
-		return (NULL);
-	while (nbr != 0)
-	{
-		rest = nbr % 16;
-		if (rest < 10)
-			hex[i++] = 48 + rest;
-		else
-			hex[i++] = 87 + rest;
-		nbr = nbr / 16;
-	}
-	hex[i] = '\0';
-	hex = ft_revchar_tab(hex, i);
-	return (hex);
-}
-
-char	*ft_convert_hex_upper(unsigned long nbr)
-{
-	char	*hex;
-	size_t	i;
-
 	i = -1;
-	hex = ft_convert_hex_min(nbr);
-	while (++i <= ft_strlen(hex))
-		hex[i] = ft_toupper(hex[i]);
-	return (hex);
-}
-
-int	ft_print_hex_min(unsigned long nbr, int *rcount)
-{
-	char	*hex;
-
-	hex = ft_convert_hex_min(nbr);
-	ft_printf_str(hex, rcount);
-	free (hex);
-	hex = NULL;
-	return (*rcount);
-}
-
-int	ft_print_hex_upper(unsigned long nbr, int *rcount)
-{
-	char	*hex;
-
-	hex = ft_convert_hex_upper(nbr);
-	ft_printf_str(hex, rcount);
-	free (hex);
-	hex = NULL;
+	ret = NULL;
+	if (format == 'x' || format == 'X')
+	{
+		ret = ft_itoa_base((unsigned int)nbr, 16);
+		if (format == 'x')
+			while (ret[++i])
+				ft_putchar_fd(ft_tolower(ret[i]), 1);
+		else if (format == 'X')
+			while (ret[++i])
+				ft_putchar_fd(ft_toupper(ret[i]), 1);
+	}
+	else if (format == 'p')
+	{
+		ret = ft_itoa_base(nbr, 16);
+		while (ret[++i])
+			ft_putchar_fd(ret[i], 1);
+	}
+	free(ret);
+	*rcount += i;
 	return (*rcount);
 }
 

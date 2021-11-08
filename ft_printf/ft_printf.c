@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 18:08:17 by jmartin           #+#    #+#             */
-/*   Updated: 2021/11/08 20:16:02 by jmartin          ###   ########.fr       */
+/*   Updated: 2021/11/08 20:51:01 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ static void	ft_printf_args(char convert, va_list args, int *rcount)
 		ft_printf_int(va_arg(args, int), rcount);
 	else if (convert == 'u')
 		ft_printf_dun(va_arg(args, unsigned int), rcount);
-	else if (convert == 'x')
-		ft_print_hex_min(va_arg(args, unsigned int), rcount);
-	else if (convert == 'X')
-		ft_print_hex_upper(va_arg(args, unsigned int), rcount);
+	else if (convert == 'x' || convert == 'X' )
+		ft_printf_hex(va_arg(args, int), rcount, convert);
 	else if (convert == '%')
 		ft_printf_char('%', rcount);
 }
