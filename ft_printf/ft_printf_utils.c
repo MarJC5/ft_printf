@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 13:50:03 by jmartin           #+#    #+#             */
-/*   Updated: 2021/11/07 13:50:30 by jmartin          ###   ########.fr       */
+/*   Updated: 2021/11/08 13:11:15 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_revchar_tab(char *tab, int size)
 	return (tab);
 }
 
-int	ft_numiterate(int n)
+int	ft_numiterate(unsigned long n)
 {
 	int	i;
 

@@ -4,6 +4,8 @@ test
 printfTester/
 pft_2019/
 printf-tester/
+valgrind-out.txt
+.vscode/settings.json
 
 # Prerequisites
 *.d

@@ -51,8 +51,12 @@ test: tclean all
 # Clean all for test program
 tclean: fclean
 	@$(RM) ./test
+	@$(RM) ./valgrind-out.txt
 	@echo "[$(RED)deleted$(RESET)]: ./test program"
+
+valgrind:
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt -s ./test
 
 re: fclean all
 
-.PHONY: all clean fclean re test tclean
+.PHONY: all clean fclean re test tclean valgrind

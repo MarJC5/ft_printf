@@ -6,13 +6,13 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 15:33:47 by jmartin           #+#    #+#             */
-/*   Updated: 2021/11/08 07:07:22 by jmartin          ###   ########.fr       */
+/*   Updated: 2021/11/08 13:11:35 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_printf_hex(unsigned long int nbr)
+char	*ft_convert_hex_min(unsigned long nbr)
 {
 	char	*hex;
 	int		rest;
@@ -21,7 +21,7 @@ char	*ft_printf_hex(unsigned long int nbr)
 	rest = 0;
 	i = 0;
 	if (nbr == 0)
-		return ("0");
+		return (ft_strdup("0"));
 	hex = (char *)malloc((ft_numiterate(nbr) + 1) * sizeof(char));
 	if (!hex)
 		return (NULL);
@@ -35,23 +35,40 @@ char	*ft_printf_hex(unsigned long int nbr)
 		nbr = nbr / 16;
 	}
 	hex[i] = '\0';
-	free(hex);
 	hex = ft_revchar_tab(hex, i);
 	return (hex);
 }
 
-char	*ft_printf_hex_upper(unsigned long int nbr)
+char	*ft_convert_hex_upper(unsigned long nbr)
 {
 	char	*hex;
 	size_t	i;
 
 	i = -1;
-	if (nbr == 0)
-		return (NULL);
-	hex = ft_printf_hex(nbr);
+	hex = ft_convert_hex_min(nbr);
 	while (++i <= ft_strlen(hex))
 		hex[i] = ft_toupper(hex[i]);
 	return (hex);
+}
+
+void	ft_print_hex_min(unsigned long nbr, int *rcount)
+{
+	char *hex;
+
+	hex = ft_convert_hex_min(nbr);
+	ft_printf_str(hex, rcount);
+	free (hex);
+	hex = NULL;
+}
+
+void	ft_print_hex_upper(unsigned long nbr, int *rcount)
+{
+	char *hex;
+
+	hex = ft_convert_hex_upper(nbr);
+	ft_printf_str(hex, rcount);
+	free (hex);
+	hex = NULL;
 }
 
 /*
