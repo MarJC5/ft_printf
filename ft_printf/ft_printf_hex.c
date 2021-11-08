@@ -6,7 +6,7 @@
 /*   By: jmartin <jmartin@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 15:33:47 by jmartin           #+#    #+#             */
-/*   Updated: 2021/11/08 21:21:16 by jmartin          ###   ########.fr       */
+/*   Updated: 2021/11/08 21:42:13 by jmartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_printf_hex(unsigned long nbr, int *rcount, int format)
 		ret = ft_itoa_base((unsigned int)nbr, 16);
 		if (format == 'x')
 			while (ret[++i])
-				ft_putchar_fd(ft_tolower(ret[i]), 1);
+				ft_putchar_fd(ret[i], 1);
 		else if (format == 'X')
 			while (ret[++i])
 				ft_putchar_fd(ft_toupper(ret[i]), 1);
