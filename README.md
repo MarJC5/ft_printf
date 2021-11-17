@@ -6,7 +6,7 @@
     </h4>
 </h1>
 
-## Descritpion
+## Description
 
 Recreate a basic version of the function ``printf()``. The following conversion must be recognized ``cspdiuxX%``.
 
