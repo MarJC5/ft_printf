@@ -13,9 +13,9 @@ Recreate a basic version of the function ``printf()``. The following conversion 
 PS: As ``printf()`` is an int function, we have to return the count of each characters that we write.
 
 ## Functions needed
-- malloc(), free()
-- write()
-- va_start(), va_arg(), va_end()
+- [malloc()](https://man7.org/linux/man-pages/man3/malloc.3.html), [free()](https://man7.org/linux/man-pages/man1/free.1.html)
+- [write()](https://man7.org/linux/man-pages/man2/write.2.html)
+- [va_start()](https://man7.org/linux/man-pages/man3/va_arg.3p.html), [va_arg()](https://man7.org/linux/man-pages/man3/va_arg.3p.html), [va_end()](https://linux.die.net/man/3/va_end)
 
 ## Step-by-step
 
