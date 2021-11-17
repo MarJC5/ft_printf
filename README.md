@@ -45,7 +45,7 @@ This arguments will write a string of characters. We check if the string passed 
 
 Both of the condition will count the number of characters returned with ``ft_strlen()`` and save the result to the ``*rcount``.
 
-#### ``%p``
+#### ``%p``
 
 #### ``%d``
 
