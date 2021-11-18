@@ -81,7 +81,7 @@ Numbers from 0-9 are expressed by digits ``0-9`` and ``10-15`` are represented b
 
 To do so we use the same concept as ``ft_putnbr()``:
 
-- Devid the number by 16
+- Divide the number by 16
 - Check if the rest is less than 10.
 - If it is, then add 48 to the rest and store the result in the array hex.
 - Otherwise, add 87 to the rest and store the result in the array hex.
