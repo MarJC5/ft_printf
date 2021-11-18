@@ -52,6 +52,8 @@ This arguments will write a string of characters. We check if the string passed 
 
 Both of the condition will count the number of characters returned with ``ft_strlen()`` and save the result to the ``*rcount``.
 
+Prototype: [``int ft_printf_str(char *str, int *rcount)``](https://github.com/MarJC5/ft_printf/blob/main/ft_printf/ft_printf_str.c)
+
 #### ``%p``
 
 This argument will print the address of a variable in hexadecimal format. To do so we convert a ``void *ptr`` to an ``unsigned long`` and convert it in hexadecimal format with the function ``ft_printf_hex()``.
