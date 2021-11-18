@@ -13,6 +13,7 @@ Recreate a basic version of the function ``printf()``. The following conversion 
 PS: As ``printf()`` is an int function, we have to return the count of each characters that we write.
 
 ## Functions needed
+
 - malloc(), free()
 - write()
 - va_start(), va_arg(), va_end()
@@ -30,16 +31,22 @@ Now we have setup this, we need to call the arguments, to do so ``va_start(args,
 ### 2. Loop the input and check every characters format
 
 As ``ft_printf()`` writes a string after converting all the arguments passed to it, we have to simplie check if the current character is a ``%``.
+
 - ``Case 1``: If the character is not a ``%`` we simply do a write of the character
 - ``Case 2``: We found a ``%``, then we check what current char +1 to have the variadic argument and pass it to the function ``void ft_printf_args(char convert, va_list args, int *rcount)``.
 
 ### 3. Proceed to the viriadic conversion
 
-#### ``%c``
+#### ``%c``]
+
 This argument will simply write a character. We call the function ``ft_putchar_fd()``and add +1 to the return ``*rcount``.
 
+Prototype: [``int ft_printf_char(int c, int *rcount)``](https://github.com/MarJC5/ft_printf/blob/main/ft_printf/ft_printf_char.c)
+
 #### ``%s``
+
 This arguments will write a string of characters. We check if the string passed to it isn't empty.
+
 - ``NULL``: call ``ft_pustr_fd()`` and pass (null) to write that the current string is equal to nothing
 - ``Valid string``: call ``ft_pustr_fd()`` to write the string
 
@@ -47,19 +54,31 @@ Both of the condition will count the number of characters returned with ``ft_str
 
 #### ``%p``
 
-#### ``%d``
+This argument will print the address of a variable in hexadecimal format. To do so we convert a ``void *ptr`` to an ``unsigned long`` and convert it in hexadecimal format with the function ``ft_printf_hex()``.
 
-#### ``%i``
+Prototype: [``int ft_printf_ptr(void *ptr, int *rcount)``](https://github.com/MarJC5/ft_printf/blob/main/ft_printf/ft_printf_ptr.c)
+
+#### ``%d`` & ``%i``
+
+Both of this arguments are returning a decimal numbers in ``base 10``. We simply use an ``ft_putnbr()``and then print the value.
+
+Prototype: [``int ft_printf_int(int nbr, int *rcount)``](https://github.com/MarJC5/ft_printf/blob/main/ft_printf/ft_printf_int.c)
 
 #### ``%u``
 
+This arguments will return a data values from zero to positive numbers. An ``ft_putnbr()`` modified with ``unsigned int nbr`` is requested as argument.
+
+Prototype: [``int ft_printf_dun(unsigned int nbr, int *rcount)``](https://github.com/MarJC5/ft_printf/blob/main/ft_printf/ft_printf_dun.c)
+
 #### ``%x et %X``
+
 This argument will convert any number to his hexadecimal value.
 
 Hexadecimal numbers uses 16 values to represent a number.
 Numbers from 0-9 are expressed by digits ``0-9`` and ``10-15`` are represented by characters from ``A – F``.
 
 To do so we use the same concept as ``ft_putnbr()``:
+
 - Devid the number by 16
 - Check if the rest is less than 10.
 - If it is, then add 48 to the rest and store the result in the array hex.
@@ -67,5 +86,8 @@ To do so we use the same concept as ``ft_putnbr()``:
 
 The difference between ``%x`` and ``%X`` is only represended by ``a - f`` and ``A - F``.
 
+Prototype: [``int ft_printf_hex(unsigned long nbr, int *rcount, int format)``](https://github.com/MarJC5/ft_printf/blob/main/ft_printf/ft_printf_hex.c)
+
 #### ``%%``
+
 This argument will write a ``%``.
